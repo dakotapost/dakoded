@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dakoded.com — Under Construction</title>
+<meta name="description" content="dakoded.com is under construction. Check back soon.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root { --accent: #4ade80; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    width: 100%;
+    background: radial-gradient(circle at 20% 15%, #141a20 0%, #0b0d10 55%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+
+  .wrap {
+    width: 100%;
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .wordmark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    color: #e7e9ea;
+    letter-spacing: -0.02em;
+  }
+  .wordmark .brackets { color: var(--accent); }
+  .wordmark .name { font-weight: 700; }
+  .wordmark .tld { color: #5b6570; }
+
+  .terminal {
+    width: 100%;
+    background: #12161a;
+    border: 1px solid #232a31;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    overflow: hidden;
+  }
+  .terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: #171c21;
+    border-bottom: 1px solid #232a31;
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dot.red { background: #ff5f56; }
+  .dot.yellow { background: #ffbd2e; }
+  .dot.green { background: #27c93f; }
+  .terminal-title {
+    flex-grow: 1;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #5b6570;
+  }
+  .terminal-body {
+    padding: 28px 24px 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.9;
+    color: #c7ccd1;
+  }
+  .prompt { color: var(--accent); }
+  .dim { color: #8a919a; padding-left: 18px; }
+  .status-line { padding-left: 18px; }
+  .status { color: #ffbd2e; font-weight: 500; }
+
+  .progress-row {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .progress-track {
+    flex-grow: 1;
+    height: 8px;
+    border-radius: 4px;
+    background: #1e252b;
+    overflow: hidden;
+  }
+  .progress-fill {
+    width: 35%;
+    height: 100%;
+    border-radius: 4px;
+    background: var(--accent);
+  }
+  .progress-pct { color: #5b6570; font-size: 12px; }
+
+  .cursor-line { margin-top: 18px; }
+  .cursor {
+    border-right: 2px solid var(--accent);
+    animation: blink 1s step-end infinite;
+  }
+
+  .heading {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .heading h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 600;
+    color: #f2f3f4;
+    letter-spacing: -0.01em;
+  }
+  .heading p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #8a919a;
+    max-width: 480px;
+  }
+
+  .contact {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #8a919a;
+    border: 1px solid #232a31;
+    border-radius: 999px;
+    padding: 9px 18px;
+  }
+
+  @media (max-width: 480px) {
+    .heading h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="wordmark">
+      <span class="brackets">&lt;/&gt;</span>
+      <span class="name">dakoded<span class="tld">.com</span></span>
+    </div>
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <div class="terminal-title">build.sh</div>
+      </div>
+      <div class="terminal-body">
+        <div><span class="prompt">$</span> whoami</div>
+        <div class="dim">dakota</div>
+        <div style="margin-top: 6px;"><span class="prompt">$</span> ./build_website.sh</div>
+        <div class="dim">compiling ideas&hellip; laying out pages&hellip;</div>
+        <div class="status-line">status: <span class="status">in progress</span></div>
+
+        <div class="progress-row">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <span class="progress-pct">35%</span>
+        </div>
+
+        <div class="cursor-line"><span class="prompt">$</span> <span class="cursor">&nbsp;</span></div>
+      </div>
+    </div>
+
+    <div class="heading">
+      <h1>This site is under construction</h1>
+      <p>I'm building dakoded.com from the ground up. Check back soon &mdash; something good is compiling.</p>
+    </div>
+
+  </div>
+</body>
+</html>
