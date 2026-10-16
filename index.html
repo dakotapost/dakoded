@@ -143,6 +143,30 @@
     padding: 9px 18px;
   }
 
+  .chart-btn {
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 10px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    background: #12161a;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    transition: background 0.15s ease;
+  }
+  .chart-btn:hover {
+    background: rgba(74, 222, 128, 0.12);
+    text-decoration: none;
+  }
+  .chart-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+  
   @media (max-width: 480px) {
     .heading h1 { font-size: 24px; }
   }
@@ -181,7 +205,16 @@
 
     <div class="heading">
       <h1>This site is under construction</h1>
-      <p>I'm building dakoded.com from the ground up. Check back soon &mdash; something good is compiling.</p>
+      <p>I'm building dakoded.com from the ground up. I don't know what I'm doing, but look how smart I'm getting</p>
+      <a class="chart-btn" href="chart.html" aria-label="View the chart">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 3v18h18"/>
+          <rect x="7" y="12" width="3" height="6" rx="0.5"/>
+          <rect x="12" y="8" width="3" height="10" rx="0.5"/>
+          <rect x="17" y="5" width="3" height="13" rx="0.5"/>
+        </svg>
+        <span>View the chart</span>
+      </a>
     </div>
 
   </div>
