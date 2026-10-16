@@ -1,0 +1,28 @@
+name: Refresh chart data
+on:
+  schedule:
+    - cron: "0 16 * * 1"      # Mondays at 16:00 UTC = 8:00 AM PST
+  workflow_dispatch:          # lets you run it manually
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pymssql
+      - run: python scripts/export_data.py
+        env:
+          SQL_SERVER: ${{ secrets.SQL_SERVER }}
+          SQL_DB: ${{ secrets.SQL_DB }}
+          SQL_USER: ${{ secrets.SQL_USER }}
+          SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data/chart.json
+          git diff --staged --quiet || (git commit -m "Update chart data" && git push)
